@@ -146,31 +146,31 @@ export default function About() {
   ] as const;
 
   const badgeStyles: Record<string, string> = {
-    TypeScript:
-      "bg-sky-500/15 text-sky-300 ring-1 ring-sky-500/25 dark:bg-sky-500/20 dark:text-sky-200 dark:ring-sky-500/30",
-    React:
-      "bg-cyan-500/15 text-cyan-300 ring-1 ring-cyan-500/25 dark:bg-cyan-500/20 dark:text-cyan-200 dark:ring-cyan-500/30",
-    "Next.js":
-      "bg-slate-500/15 text-slate-300 ring-1 ring-slate-500/25 dark:bg-white/10 dark:text-slate-200 dark:ring-white/10",
-    "Node.js":
-      "bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-500/25 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-emerald-500/30",
-    "Express.js":
-      "bg-amber-500/15 text-amber-300 ring-1 ring-amber-500/25 dark:bg-amber-500/20 dark:text-amber-200 dark:ring-amber-500/30",
-    AWS: "bg-orange-500/15 text-orange-300 ring-1 ring-orange-500/25 dark:bg-orange-500/20 dark:text-orange-200 dark:ring-orange-500/30",
-    JavaScript:
-      "bg-yellow-500/15 text-yellow-300 ring-1 ring-yellow-500/25 dark:bg-yellow-500/20 dark:text-yellow-200 dark:ring-yellow-500/30",
-    Supabase:
-      "bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-500/25 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-emerald-500/30",
-    "Spotify API":
-      "bg-green-500/15 text-green-300 ring-1 ring-green-500/25 dark:bg-green-500/20 dark:text-green-200 dark:ring-green-500/30",
+    TypeScript: "bg-[#3178c6] text-white",
+    React: "bg-cyan-500 text-white",
+    "Next.js": "bg-zinc-700 text-white",
+    "Node.js": "bg-emerald-500 text-white",
+    "Express.js": "bg-amber-500 text-white",
+    AWS: "bg-orange-500 text-white",
+    Flutter: "bg-sky-500 text-white",
+    "Windows Server": "bg-blue-600 text-white",
+    Linux: "bg-slate-600 text-white",
+    "AWS Cloud": "bg-orange-500 text-white",
+    Docker: "bg-sky-500 text-white",
+    Python: "bg-indigo-600 text-white",
+    "NLP datasets": "bg-violet-600 text-white",
+    PyTorch: "bg-orange-600 text-white",
+    "Gemini APIs": "bg-fuchsia-600 text-white",
+    JavaScript: "bg-yellow-400 text-slate-900",
+    Supabase: "bg-emerald-600 text-white",
+    "Spotify API": "bg-green-600 text-white",
   };
 
   const Badge = ({ label }: { label: string }) => (
     <span
       className={[
-        "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold",
-        badgeStyles[label] ??
-          "bg-slate-100 text-slate-700 ring-1 ring-slate-200/70 dark:bg-white/10 dark:text-slate-200 dark:ring-white/10",
+        "inline-flex items-center whitespace-nowrap rounded-full px-3 py-1 text-xs font-semibold shadow-sm",
+        badgeStyles[label] ?? "bg-zinc-700 text-white",
       ].join(" ")}
     >
       {label}
@@ -227,17 +227,20 @@ export default function About() {
             {timeline.map(item => (
               <motion.div
                 key={item.title + item.range}
-                className="relative"
+                className="group relative"
                 variants={ITEM_VARIANTS}
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 380, damping: 26 }}
               >
+                <div className="pointer-events-none absolute -inset-y-3 -left-6 -right-4 rounded-2xl bg-slate-100/70 opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:bg-white/5" />
                 <span
                   className={[
-                    "absolute -left-6 top-2 h-3 w-3 -translate-x-1/2 rounded-full",
+                    "absolute -left-6 top-2 h-3 w-3 -translate-x-1/2 rounded-full transition-transform duration-200 group-hover:scale-110",
                     "ring-4 ring-white dark:ring-black",
                     item.dotClass,
                   ].join(" ")}
                 />
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                <div className="relative flex flex-col gap-2 origin-top-left transition-transform duration-200 will-change-transform group-hover:scale-[1.01] sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                   <div className="space-y-1">
                     <div className="font-semibold text-slate-900 dark:text-white">
                       {item.title}
@@ -275,9 +278,12 @@ export default function About() {
           {projects.map(project => (
             <motion.div
               key={project.name}
-              className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
+              className="group relative flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
               variants={ITEM_VARIANTS}
+              whileHover={{ y: -2, scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 380, damping: 26 }}
             >
+              <div className="pointer-events-none absolute -inset-x-4 -inset-y-3 rounded-2xl bg-slate-100/70 opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:bg-white/5" />
               <div className="space-y-1">
                 <div className="font-semibold text-slate-900 dark:text-white">
                   {project.name}
@@ -310,9 +316,12 @@ export default function About() {
           {hobbies.map(hobby => (
             <motion.div
               key={hobby.title}
-              className="space-y-1"
+              className="group relative space-y-1"
               variants={ITEM_VARIANTS}
+              whileHover={{ y: -2, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 380, damping: 26 }}
             >
+              <div className="pointer-events-none absolute -inset-x-3 -inset-y-3 rounded-2xl bg-slate-100/70 opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:bg-white/5" />
               <div className="font-semibold text-slate-900 dark:text-white">
                 {hobby.title}
               </div>
