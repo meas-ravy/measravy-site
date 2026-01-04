@@ -1,13 +1,21 @@
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/main_layout";
+import Home from "./pages/home";
+import About from "./pages/about";
+// import Gear from "./pages/gear";
+import Contact from "./pages/contage";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <div className="min-h-screen flex items-center justify-center bg-black text-white text-3xl">
-        Tailwind v4 is working 🚀
-      </div>
-    </>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          {/* <Route path="/gear" element={<Gear />} /> */}
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
-
-export default App;
