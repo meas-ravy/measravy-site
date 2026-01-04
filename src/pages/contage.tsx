@@ -6,6 +6,31 @@ import {
   Mail,
   MessageCircle,
 } from "lucide-react";
+import { easeOut, motion } from "framer-motion";
+
+const PAGE_VARIANTS = {
+  hidden: { opacity: 0, y: 8 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: easeOut, staggerChildren: 0.1 },
+  },
+};
+
+const SECTION_VARIANTS = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
+};
+
+const LIST_VARIANTS = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
+const ITEM_VARIANTS = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: easeOut } },
+};
 
 type ContactMethod = {
   title: string;
@@ -61,10 +86,11 @@ function ContactCard({ method }: { method: ContactMethod }) {
   const { Icon } = method;
 
   return (
-    <a
+    <motion.a
       href={method.href}
       target={method.href.startsWith("http") ? "_blank" : undefined}
       rel={method.href.startsWith("http") ? "noreferrer" : undefined}
+      variants={ITEM_VARIANTS}
       className={[
         "group flex items-center gap-4 rounded-2xl px-5 py-4",
         "bg-white shadow-sm ring-1 ring-slate-200/70 transition",
@@ -84,14 +110,15 @@ function ContactCard({ method }: { method: ContactMethod }) {
           {method.value}
         </div>
       </div>
-    </a>
+    </motion.a>
   );
 }
 
 function CallCard({ option }: { option: CallOption }) {
   return (
-    <button
+    <motion.button
       type="button"
+      variants={ITEM_VARIANTS}
       className={[
         "group flex min-h-42.5 flex-col justify-between rounded-2xl p-6 text-left",
         "bg-white shadow-sm ring-1 ring-slate-200/70 transition",
@@ -117,35 +144,43 @@ function CallCard({ option }: { option: CallOption }) {
         Select this option
         <ChevronRight className="h-4 w-4 translate-y-px" />
       </div>
-    </button>
+    </motion.button>
   );
 }
 
 export default function Contact() {
   return (
-    <div className="space-y-14">
-      <div className="space-y-2">
+    <motion.div
+      className="space-y-14"
+      variants={PAGE_VARIANTS}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.div className="space-y-2" variants={SECTION_VARIANTS}>
         <h1 className="text-5xl font-semibold tracking-tight text-slate-900 dark:text-white">
           Contact
         </h1>
         <p className="text-lg font-medium text-slate-600 dark:text-slate-400">
           Let&apos;s connect.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="space-y-5">
+      <motion.div className="space-y-5" variants={SECTION_VARIANTS}>
         <p className="text-slate-600 dark:text-slate-400">
           Connect with me through any of these platforms.
         </p>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <motion.div
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+          variants={LIST_VARIANTS}
+        >
           {CONTACT_METHODS.map(method => (
             <ContactCard key={method.title} method={method} />
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="space-y-5">
+      <motion.div className="space-y-5" variants={SECTION_VARIANTS}>
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">
             Book a Call
@@ -156,12 +191,15 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <motion.div
+          className="grid grid-cols-1 gap-4 sm:grid-cols-3"
+          variants={LIST_VARIANTS}
+        >
           {CALL_OPTIONS.map(option => (
             <CallCard key={option.duration} option={option} />
           ))}
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }

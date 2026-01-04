@@ -62,52 +62,59 @@ export default function About() {
   const timeline = [
     {
       dotClass: "bg-blue-500",
-      title: "Amazon",
+      title: "Focuz Solution",
       subtitle: "Software Development Engineer",
-      bullets: ["working on large scale messaging systems"],
-      range: "2024 - Now",
+      bullets: ["working on scale Mobile App and website systems"],
+      range: "2026 - Now",
     },
     {
       dotClass: "bg-amber-400",
-      title: "California State Polytechnic University, Pomona",
+      title: "RUPP - Royal University of Phnom Penh",
       subtitle: "B.S. Computer Science",
       bullets: ["got my degree to make my parents proud"],
-      range: "2020 - 2024",
+      range: "2025 - 2026",
     },
     {
       dotClass: "bg-emerald-400",
-      title: "Amazon",
+      title: "Focuz Solution",
       subtitle: "Software Development Engineer Intern",
-      bullets: ["worked on amazon fresh grocery experience"],
-      range: "2023 - 2023",
+      bullets: ["worked on Focuz Solution fresh grocery experience"],
+      range: "2025 - 2025",
     },
-    {
-      dotClass: "bg-rose-500",
-      title: "Solace Notify",
-      subtitle: "Founder",
-      bullets: ["built reselling community and developed tools"],
-      range: "2019 - 2023",
-    },
+    // {
+    //   dotClass: "bg-rose-500",
+    //   title: "Job Finder App",
+    //   subtitle: "Soft",
+    //   bullets: ["built reselling community and developed tools"],
+    //   range: "2025 - 2026",
+    // },
   ] as const;
 
   const projects = [
     {
-      name: "Cypher Chat",
+      name: "Job Finder App",
       description:
-        "Secure client-server chat web app enabling real-time and private communication.",
-      tags: ["TypeScript", "React", "Next.js", "Node.js", "Express.js", "AWS"],
+        "Explore opportunities, connect with recruiters, and manage applications—all in one place.",
+      tags: [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "Flutter",
+      ],
     },
     {
-      name: "Sole Exchange",
+      name: "System Administrator",
       description:
-        "Forum that allows users to post, interact, and search about anything sneaker related.",
-      tags: ["React", "JavaScript", "Node.js", "Supabase"],
+        "Responsible for designing, deploying, configuring, and maintaining 13 core IT systems, ensuring security, availability, and performance across on-premise and cloud environments.",
+      tags: ["Windows Server", "Linux", "AWS Cloud", "Docker"],
     },
     {
-      name: "Spotify Data Dashboard",
+      name: "ML / LLM (Large Language Model) research project",
       description:
         "Dashboard that fetches Spotify's Top 50 songs and visualizes data in text and chart form.",
-      tags: ["React", "Spotify API", "JavaScript", "Node.js"],
+      tags: ["Python", "NLP datasets", "PyTorch", "Gemini APIs"],
     },
   ] as const;
 
