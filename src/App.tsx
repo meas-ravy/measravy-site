@@ -6,8 +6,11 @@ import About from "./pages/about";
 import Contact from "./pages/contage";
 
 export default function App() {
+  const baseUrl = import.meta.env.BASE_URL;
+  const basename = baseUrl === "/" ? "/" : baseUrl.replace(/\/$/, "");
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
