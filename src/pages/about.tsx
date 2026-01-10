@@ -100,7 +100,7 @@ export default function About() {
         "React",
         "Next.js",
         "Node.js",
-        "Express.js",
+        "PostgreSQL",
         "Flutter",
       ],
     },
@@ -113,17 +113,18 @@ export default function About() {
     {
       name: "ML / LLM (Large Language Model) research project",
       description:
-        "Dashboard that fetches Spotify's Top 50 songs and visualizes data in text and chart form.",
+        "A research project focused on Machine Learning and Large Language Models (LLMs).",
       tags: ["Python", "NLP datasets", "PyTorch", "Gemini APIs"],
     },
   ] as const;
 
   const hobbies = [
     {
-      title: "YouTube",
-      description: "documenting my life as a software engineer",
-      stat: "19 videos",
-      statClass: "text-rose-400",
+      title: "Moto Adventures",
+      description:
+        "riding across local routes and countryside with friends on days off in Cambodia",
+      stat: "open roads",
+      statClass: "text-orange-400",
     },
     {
       title: "Real Estate Investing",
@@ -134,13 +135,14 @@ export default function About() {
     {
       title: "Stocks and Crypto",
       description: "buying high and selling low is my philosophy",
-      stat: "~$25,000 profit",
+      // stat: "~$25,000 profit",
+      stat: "",
       statClass: "text-emerald-400",
     },
     {
       title: "Mechanical Keyboards",
       description: "fun but will be the reason why im homeless",
-      stat: "3 custom keyboards",
+      stat: "",
       statClass: "text-violet-400",
     },
   ] as const;
@@ -148,9 +150,9 @@ export default function About() {
   const badgeStyles: Record<string, string> = {
     TypeScript: "bg-[#3178c6] text-white",
     React: "bg-cyan-500 text-white",
-    "Next.js": "bg-zinc-700 text-white",
-    "Node.js": "bg-emerald-500 text-white",
-    "Express.js": "bg-amber-500 text-white",
+    PostgreSQL: "bg-emerald-500 text-white",
+    "Next.js": "bg-gray-500 text-white",
+    "Node.js": "bg-green-500 text-white",
     AWS: "bg-orange-500 text-white",
     Flutter: "bg-sky-500 text-white",
     "Windows Server": "bg-blue-600 text-white",
