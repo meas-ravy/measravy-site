@@ -1,17 +1,15 @@
-# 🌐 Ravy Meas – Personal Portfolio Website
+# Personal Portfolio Website
 
 A modern and responsive **personal portfolio website** built to showcase projects, skills, experience, and personal interests in a clean and professional way.
 
----
 
-## 📌 What This Project Is
+## What This Project Is
 
 This project is a **personal portfolio website** for **Ravy Meas**, a software engineer.  
 It is designed to present technical skills, selected projects, and personal interests while maintaining a strong focus on performance, accessibility, and modern UI/UX.
 
----
 
-## ✨ Features
+## Features
 
 - Clean and modern UI
 - Fully responsive design
@@ -21,9 +19,8 @@ It is designed to present technical skills, selected projects, and personal inte
 - Optimized for performance and SEO
 - Easy to customize and extend
 
----
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
 
@@ -43,5 +40,3 @@ It is designed to present technical skills, selected projects, and personal inte
 
 - **Vercel** – Hosting and deployment platform  
   (configured using `vercel.json`)
-
----
