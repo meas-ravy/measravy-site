@@ -7,6 +7,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { easeOut, motion } from "framer-motion";
+import { openBookingLink } from "../utils/calendar";
 
 const PAGE_VARIANTS = {
   hidden: { opacity: 0, y: 8 },
@@ -42,6 +43,7 @@ type ContactMethod = {
 type CallOption = {
   title: string;
   duration: string;
+  durationMinutes: number;
   subtitle: string;
 };
 
@@ -73,11 +75,22 @@ const CONTACT_METHODS: ContactMethod[] = [
 ];
 
 const CALL_OPTIONS: CallOption[] = [
-  { title: "15 Min Chat", duration: "15 min", subtitle: "Quick chat" },
-  { title: "30 Min Chat", duration: "30 min", subtitle: "Standard meeting" },
+  {
+    title: "15 Min Chat",
+    duration: "15 min",
+    durationMinutes: 15,
+    subtitle: "Quick chat",
+  },
+  {
+    title: "30 Min Chat",
+    duration: "30 min",
+    durationMinutes: 30,
+    subtitle: "Standard meeting",
+  },
   {
     title: "60 Min Chat",
     duration: "60 min",
+    durationMinutes: 60,
     subtitle: "In-depth conversation",
   },
 ];
@@ -115,9 +128,14 @@ function ContactCard({ method }: { method: ContactMethod }) {
 }
 
 function CallCard({ option }: { option: CallOption }) {
+  const handleBooking = () => {
+    openBookingLink(option.durationMinutes);
+  };
+
   return (
     <motion.button
       type="button"
+      onClick={handleBooking}
       variants={ITEM_VARIANTS}
       className={[
         "group flex min-h-42.5 flex-col justify-between rounded-2xl p-6 text-left",

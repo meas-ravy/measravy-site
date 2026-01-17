@@ -2,12 +2,10 @@
 
 A modern and responsive **personal portfolio website** built to showcase projects, skills, experience, and personal interests in a clean and professional way.
 
-
 ## What This Project Is
 
 This project is a **personal portfolio website** for **Ravy Meas**, a software engineer.  
 It is designed to present technical skills, selected projects, and personal interests while maintaining a strong focus on performance, accessibility, and modern UI/UX.
-
 
 ## Features
 
@@ -18,7 +16,6 @@ It is designed to present technical skills, selected projects, and personal inte
 - Dark / light mode support
 - Optimized for performance and SEO
 - Easy to customize and extend
-
 
 ## Tech Stack
 

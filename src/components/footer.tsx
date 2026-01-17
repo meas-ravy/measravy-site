@@ -19,15 +19,15 @@ function SocialIcon({
   children: ReactNode;
 }) {
   return (
-    <button
-      type="button"
+    <a
+      href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noreferrer" : undefined}
       aria-label={label}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition 
-      hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-900/70 dark:hover:text-white"
-      onClick={() => window.open(href, "_blank")}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-900/70 dark:hover:text-white"
     >
       {children}
-    </button>
+    </a>
   );
 }
 

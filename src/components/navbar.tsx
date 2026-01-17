@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import ThemeToggle from "../hooks/ligh_dark_mode";
+import { NavLink, Link } from "react-router-dom";
+import ThemeToggle from "../hooks/light_dark_mode";
 
 const NAV_ITEMS = [
   { to: "/", label: "Home", end: true },
@@ -13,11 +13,13 @@ export default function Navbar() {
     <header className="pt-10 pb-14">
       <div className="mx-auto w-full max-w-3xl px-4">
         <div className="flex items-center justify-between gap-4">
-          <img
-            src="/images/avata.jpg"
-            alt="Ravy Meas"
-            className="h-10 w-10 rounded-full cursor-pointer object-cover ring-1 ring-slate-200/70 dark:ring-slate-800/60"
-          />
+          <Link to="/" aria-label="Home">
+            <img
+              src="/images/avata.jpg"
+              alt="Ravy Meas"
+              className="h-10 w-10 rounded-full cursor-pointer object-cover ring-1 ring-slate-200/70 transition hover:ring-slate-300 dark:ring-slate-800/60 dark:hover:ring-slate-700"
+            />
+          </Link>
 
           <nav className="rounded-full bg-slate-100 p-1 ring-1 ring-slate-200/70 dark:bg-slate-900/60 dark:ring-slate-800/60">
             <ul className="flex items-center gap-1 text-sm">
