@@ -1,59 +1,63 @@
-import { easeOut } from "framer-motion";
+import type { Variants } from "framer-motion";
 
-// ============================================================================
-//! ANIMATION VARIANTS in about page
-// ============================================================================
+const CARD_EASE: [number, number, number, number] = [0.23, 1.12, 0.42, 1.05];
 
-export const PAGE_VARIANTS = {
-  hidden: { opacity: 0, y: 8 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: easeOut, staggerChildren: 0.1 },
+export const cardVariants: Variants = {
+  hidden: {
+    x: -300,
+    y: 500,
+    rotate: 35,
+    opacity: 0,
+    scale: 0.7,
   },
-};
-
-export const SECTION_VARIANTS = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
-};
-
-export const LIST_VARIANTS = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
-
-export const ITEM_VARIANTS = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: easeOut } },
-};
-
-export const PHOTO_VARIANTS = {
-  hidden: (index: number) => {
-    // Each photo enters from a different direction matching its rotation
-    const directions = [
-      { x: -100, y: -80, rotate: -45 }, // Top-left for -rotate-8 photo
-      { x: -60, y: -40, rotate: -20 }, // Left for -rotate-3 photo
-      { x: 60, y: -40, rotate: 20 }, // Right for rotate-3 photo
-      { x: 100, y: -80, rotate: 45 }, // Top-right for rotate-8 photo
-    ];
-    return {
-      opacity: 0,
-      scale: 0.7,
-      ...directions[index],
-    };
-  },
-  show: {
-    opacity: 1,
+  visible: (index: number) => ({
     x: 0,
     y: 0,
+    rotate: index % 2 === 0 ? -6 : 4,
+    opacity: 1,
     scale: 1,
-    rotate: 0,
     transition: {
-      type: "spring" as const,
-      stiffness: 100,
-      damping: 15,
-      mass: 1,
+      duration: 0.8,
+      delay: index * 0.2,
+      ease: CARD_EASE,
+      opacity: { duration: 0.2, delay: index * 0.2 },
+      rotate: {
+        duration: 1.2,
+        delay: index * 0.2,
+        ease: CARD_EASE,
+      },
+      scale: { duration: 0.8, delay: index * 0.2 },
+    },
+  }),
+};
+
+export const sectionVariants = {
+  hover: {
+    scale: 1.02,
+    transition: {
+      type: "spring",
+      bounce: 0.3,
+      duration: 0.4,
+    },
+  },
+};
+
+export const titleVariants = {
+  hover: {
+    x: 4,
+    transition: {
+      type: "tween",
+      ease: "easeOut",
+      duration: 0.2,
+    },
+  },
+};
+
+export const containerVariants = {
+  hover: {
+    opacity: 0.5,
+    transition: {
+      duration: 0.2,
     },
   },
 };
